@@ -24,7 +24,8 @@ app.get('/shorturls/:shortcode', (req, res) => {
   const url = Object.keys(urls).find(key => urls[key] === shortcode);
   console.log(url)
   if (url) {
-    res.status(200).json({ "originalUrl": url });
+    const uurl = `http://localhost:3000/${url}`;
+    res.status(200).json({ "originalUrl": uurl });
   } else {
     res.status(404).json({ error: "URL not found" });
   }
